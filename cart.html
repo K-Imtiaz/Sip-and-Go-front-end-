@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart | Sip & Go</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo" style="font-size: 1.5rem; font-weight: bold;">Sip & Go</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="cart.html">🛒 Cart <span id="cart-count" style="display: none;">0</span></a>
+            <button class="theme-btn" onclick="toggleTheme()">🌗 Theme</button>
+        </nav>
+    </header>
+
+    <div class="container" style="max-width: 800px;">
+        <h2>🛒 Your Shopping Cart</h2>
+        
+        <div id="empty-cart-msg" style="display: none; background: var(--alt-bg); padding: 40px; text-align: center; border-radius: 8px;">
+            <h3>Your cart is empty!</h3>
+            <a href="menu.html" class="btn" style="margin-top: 15px;">Browse Menu</a>
+        </div>
+
+        <div id="cart-content" style="display: none;">
+            <table class="table" id="cart-table">
+                <tr>
+                    <th style="text-align: left;">Product</th>
+                    <th style="text-align: center;">Price</th>
+                    <th style="text-align: center;">Qty</th>
+                    <th style="text-align: right;">Subtotal</th>
+                    <th style="text-align: center;">Action</th>
+                </tr>
+                <!-- JS will inject rows here -->
+            </table>
+
+            <div style="background: var(--alt-bg); padding: 20px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 1.2rem; font-weight: bold;">Subtotal: <span style="color: #27ae60;" id="cart-total">£0.00</span></span>
+                <a href="checkout.html" class="btn" style="background-color: #27ae60;">Checkout ➡️</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            if (cart.length === 0) {
+                document.getElementById("empty-cart-msg").style.display = "block";
+            } else {
+                document.getElementById("cart-content").style.display = "block";
+                let table = document.getElementById("cart-table");
+                let total = 0;
+
+                cart.forEach((item, index) => {
+                    let subtotal = item.price * item.quantity;
+                    total += subtotal;
+                    
+                    let row = table.insertRow();
+                    row.innerHTML = `
+                        <td><strong>${item.name}</strong></td>
+                        <td style="text-align: center;">£${item.price.toFixed(2)}</td>
+                        <td style="text-align: center;">${item.quantity}</td>
+                        <td style="text-align: right; font-weight: bold;">£${subtotal.toFixed(2)}</td>
+                        <td style="text-align: center;">
+                            <button onclick="removeFromCart(${index})" style="background:none; border:none; color:#e74c3c; cursor:pointer; font-weight:bold;">❌ Remove</button>
+                        </td>
+                    `;
+                });
+                document.getElementById("cart-total").innerText = "£" + total.toFixed(2);
+            }
+        });
+    </script>
+</body>
+</html>

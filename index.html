@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sip & Go | Home</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo" style="font-size: 1.5rem; font-weight: bold;">Sip & Go</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="cart.html">🛒 Cart <span id="cart-count" style="background: #e74c3c; color: white; border-radius: 50%; padding: 2px 7px; font-size: 0.8rem; margin-left: 3px; display: none;">0</span></a>
+            <button class="theme-btn" onclick="toggleTheme()">🌗 Theme</button>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="hero" style="
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=1200&auto=format&fit=crop'); 
+            background-size: cover; 
+            background-position: center; 
+            color: white; 
+            padding: 6rem 2rem; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+            <h1 style="font-size: 3rem; margin-bottom: 1rem;">Door-to-Door Drinks Delivery</h1>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">From premium spirits to fresh sodas, delivered straight to your door in minutes.</p>
+            <a href="menu.html" class="btn" style="font-size: 1.1rem; padding: 12px 25px;">Browse Our Menu</a>
+        </div>
+
+        <h2 style="text-align: center; margin-bottom: 30px;">Special Offers</h2>
+        <div class="promo-grid">
+            <div class="promo-card">
+                <h3>🍹 Happy Hour</h3>
+                <p>Get <strong>20% off</strong> all cocktails between 5 PM and 8 PM daily.</p>
+            </div>
+            <div class="promo-card">
+                <h3>🍻 Buy 2 Get 1 Free</h3>
+                <p>Mix and match selected craft beers. The cheapest item is free!</p>
+            </div>
+            <div class="promo-card">
+                <h3>🎁 First Order</h3>
+                <p>Enjoy <strong>15% off</strong> your first delivery with code WELCOME15.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Sip & Go Drinks Delivery.</p>
+    </footer>
+</body>
+</html>
